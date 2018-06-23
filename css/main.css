@@ -1,1 +1,9 @@
+.border{
+    border: 2px solid black;
+    padding: 0px;
+    margin: 0px;
 
+}
+header{
+    height:  20vh;
+}
