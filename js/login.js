@@ -18,7 +18,7 @@ var provider = new firebase.auth.GoogleAuthProvider();
 $('#login').click(function () {
   console.log('CLICKED');
       firebase.auth().signInWithPopup(provider).then(function(result) {
-        window.location = "view/timeline.html?LOGIN=SUCCESSFUL";
+        window.location = "view/timeline.html";
     })
     .catch(error => console.log(error));
 });
