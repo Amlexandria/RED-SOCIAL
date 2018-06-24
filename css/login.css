@@ -1,1 +1,36 @@
-login.css
+body {
+    /* background-color: #FAFAFA; */
+    background-color: #EBEEEF;
+}
+
+.row {
+    margin-bottom: 0;
+}
+
+.image-login {
+    background-color: #00EBFA;
+    height: 100vh;
+}
+
+.space {
+    height: 1rem;
+}
+
+.container-login { 
+    background-color: white;
+    max-height: 85vh;
+}
+.logo {
+    background-color:#7144A8;
+    height: 4rem;
+    margin-top: 1rem;
+}
+
+.login-g-btn {
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+}
+
+.container-login p {
+    margin: 0;
+}
