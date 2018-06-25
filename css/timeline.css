@@ -1,0 +1,37 @@
+.border{
+    border: 2px solid black;
+    padding: 0px;
+    margin: 0px;
+}
+
+nav {
+    height: 5rem;
+    background-color: #20B7E2;
+}
+
+.row {
+    margin-bottom: .3rem;
+}
+
+.cont-img-profile {
+    padding-top: 1rem;
+}
+
+.go-to-profile {
+    display: inline-block;
+}
+
+.btn-delete {
+    margin-bottom: 1rem;
+}
+
+.modal {
+    max-height: 85%;
+}
+.herramientas {
+    margin: 0;
+}
+
+.container-tools {
+    max-height: 4rem;
+}
