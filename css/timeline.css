@@ -4,9 +4,14 @@
     margin: 0px;
 }
 
-nav {
+/* nav {
     height: 5rem;
     background-color: #20B7E2;
+} */
+
+#publicar {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
 }
 
 .row {

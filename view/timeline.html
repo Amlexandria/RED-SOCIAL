@@ -11,15 +11,171 @@
     <title>Having a Nice day</title>
 </head>
 <body>
-    <nav>
-
-    </nav> 
-    <div id="root"></div> 
-    <header>
-        <div class="row">
-            <a id="Publicar" class="waves-effect waves-light btn offset-s6 offset-m8 offset-l9 col s5 m3 l2 modal-trigger" href="#modal1">Publicar</a>
-        </div>   
+    <header id="barbar">
+            <div class="row border  ">
+                    <!--Avatar-->
+                    <div class="col s3 m2 ">
+                        <div class=" imgbox ">
+                            <img src="../assets/imagenes/150.jpg" alt="" class="responsive-img" id="img150x150">
+                        </div>
+                    </div><!--Final de la particion principal imagen-->
+                    <!--Centro que se dividira en 3-->
+                    <div class="col s6  m8  ">
+                        <div class="row   innerbox">
+                            <div class="col m4 insideheighrow  hide-on-small-only ">
+                                <!--Datos  fijos-->
+                                <div class="row">
+                                    <div class="col m6 data1">
+                                        <div class="dataBox1 left">Nombre:
+                                        </div>  
+                                    </div>                    
+                                    <div class="col m6 data1">
+                                        <div id="name" class="dataBox1 right">Nombre1
+                                        </div>
+                                    </div>
+                                </div>   
+                                <div class="row">
+                                    <div class="col m6 data1">
+                                        <div class="dataBox1 left">Pseudonimo:
+                                        </div>
+                                    </div>
+                                    <div class="col m6 data1">
+                                        <div id="nickname" class="dataBox1 right">Pseudonimo1
+                                        </div>
+                                    </div>
+                                </div> 
+                                <div class="row">
+                                    <div class="col m6">
+                                        <div class="dataBox1 left">Especialidad:
+                                        </div>
+                                    </div>
+                                    <div class=" col m6 data1">                                                                 
+                                        <div id="speciality" class="dataBox1 right">Especialidad1
+                                        </div>
+                                    </div>
+                                </div>   
+                            </div>                
+                            
+                                <!--Datos personales, se mostrara en todos los tamaños-->
+                            <div class="col m4  ">
+                                <div class="">
+                                    <label for="AboutTextArea">About</label>
+                                    <p class="headerAbout" id="AboutTextArea">
+                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam rerum sint, sequi ducimus aliquam iure voluptas quaerat, veritatis
+                                        inventore quis quibusdam quas eius iusto? Praesentium laboriosam veniam quaerat iste accusamus.Qui
+                                        ab vero necessitatibus saepe, quis commodi nam magnam quaerat nobis perferendis mollitia
+                                        enim assumenda doloribus. Accusantium aliquam at sit sequi exercitationem quae fuga ipsam.
+                                        Ut adipisci enim consequuntur deserunt?
+                                    </p>
+                                </div>
+                            </div>
+                            <!--Segunda area datos de proyectos, se econde en mobile-->
+                            <div class="col m4 insideheighrow  hide-on-small-only ">
+                                <!--Datos  fijos-->
+                                <div class="row">
+                                    <div class="col m6 data1">
+                                        <div class="dataBox1 left">Nombre:
+                                        </div>  
+                                    </div>                    
+                                    <div class="col m6 data1">
+                                        <div id="jobs" class="dataBox1 right">Nombre1
+                                        </div>
+                                    </div>
+                                </div>   
+                                <div class="row">
+                                    <div class="col m6 data1">
+                                        <div class="dataBox1 left">Pseudonimo:
+                                        </div>
+                                    </div>
+                                    <div class="col m6 data1">
+                                        <div id="proyect" class="dataBox1 right">Pseudonimo1
+                                        </div>
+                                    </div>
+                                </div> 
+                                <div class="row">
+                                    <div class="col m6">
+                                        <div class="dataBox1 left">Especialidad:
+                                        </div>
+                                    </div>
+                                    <div class=" col m6 data1">                                                                 
+                                        <div id="pops" class="dataBox1 right">Especialidad1
+                                        </div>
+                                    </div>
+                                </div>   
+                            </div>      
+                            
+                        </div><!--Row principal centro-->
+    
+                    </div><!--Final particion central-->
+                    
+                    <!--Submit image button in profile-->
+                    <div class="col s3  m2 heighrow ">
+                        <div>
+                            
+                            
+                                 <!-- Dropdown Trigger -->
+                                <a class='dropdown-trigger btn' href='#' data-target='dropdown1'>Drop Me!</a>
+                           
+                            <!-- Dropdown Structure -->
+                            <ul id='dropdown1' class='dropdown-content'>
+                                <a class="waves-effect waves-light btn modal-trigger" href="#upload"><i class="material-icons">collections</i>Subir Imagen</a>
+                                <li class="divider" tabindex="-1"></li>
+                                <li><a href="/view/timeline.html"><i class="material-icons">timeline</i>Timeline</a></li>
+                                <li><a href="/view/profile.html"><i class="material-icons">fingerprint</i>Perfil</a></li>
+                                <li><a href="/view/config.html"><i class="material-icons">settings</i>Preferencias</a></li>
+                            </ul>
+                        </div>
+                    </div><!--Final particion Submit-->
+                </div><!--Row principal End--> 
+                <!--Inicio modal de carga-->  
+                <div id="upload" class="modal">
+                    <div class="modal-content">
+                        <div class="row">
+                             <div class="col s12 m12">
+                                <div class="card">
+                                    <div class="card-image">
+                                        <img id="img" src="">
+                                        <span class="card-title" id="arttitle"></span>
+                                        <!--Boton para subir imagenes-->
+                                        <form id="form-image">
+                                                <label  class=" btn-file">
+                                                    <input type="file" name="fichero" id="fichero" class="hide">
+                                                    <a id="uploadbutton" class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+                                                </label>
+                                         </form>
+                                         <!--Fin boton de carga de imagenes-->
+                                    </div>
+                                     <div class="card-content">
+                                        <div class="input-field ">
+                                            <label for="textarea1">Titulo</label>
+                                            <textarea id="poptitle" class="materialize-textarea"></textarea>
+                                        </div>
+                                        <div class="input-field ">
+                                            <label for="commentsprofile">Comentarios</label>
+                                            <textarea id="commentsprofile" class="materialize-textarea"></textarea>
+                                        </div>
+                                        <div class="input-field ">
+                                            <label for="tools">Herramientas</label>
+                                            <textarea id="tools" class="materialize-textarea"></textarea>
+                                        </div>
+                                        <div class="input-field ">
+                                            <label for="process">Proceso</label>
+                                            <textarea id="process" class="materialize-textarea"></textarea>
+                                        </div>
+                                        
+                                        <!-- <button class="btn btn-large waves-effect waves-light modal-close" type="submit" name="action">Submit
+                                             <i class="material-icons center">send</i>
+                                        </button> -->
+                                    </div>
+                                 </div>
+                            </div>
+                        </div>                  
+                    </div>
+                </div><!--Fin de Modal-->   
     </header>
+    <div class="row btn-new-post">
+        <a id="publicar" class="waves-effect waves-light btn offset-s6 offset-m8 offset-l9 col s5 m3 l2 modal-trigger" href="#modal1">Publicar</a>
+    </div> 
      <!-- CARD PUBLICACIÓN PLANTILLA -->
     <main>
         <section id="plantilla" class="row">
