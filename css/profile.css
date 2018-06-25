@@ -1,1 +1,6 @@
-profile.css
+.thumbnail{
+    border: 1px solid black;
+    height: 60vh;
+    width: 20vw;
+
+}
