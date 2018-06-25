@@ -1,3 +1,4 @@
+/*header*/
 .border{
     border: 2px solid black;
     padding: 0px;
@@ -6,4 +7,91 @@
 }
 header{
     height:  20vh;
+    
+}
+
+@media all and (max-width:468px) {
+   .imgbox {
+       margin-top: 15px;
+   }
+   .headerAbout{
+    font-size-adjust: unset;
+    background-color: lightblue;
+    width: 100%;
+    height: 13vh;
+    padding: 0%;
+    margin: 0%;
+    overflow: auto;
+    }
+    .dropdown-trigger{
+        text-align: justify;
+        margin-top: 20%;
+        height: 15%;
+        padding: 0%;
+    }
+    .burgerbtn{
+        margin-top: 20%;     
+    }
+  }
+  /*Solo en med para arriba*/
+   @media (min-width:468px) {
+     .headerAbout{
+    font-size-adjust: unset;
+    background-color: lightblue;
+    width: 100%;
+    height: 20vh;
+    padding: 0%;
+    margin: 0%;
+    overflow: auto;
+    } 
+   
+   .responsive-img{
+    margin-top: 1rem;
+    max-width: 100%;
+    height: auto;
+   }
+   .innerbox{
+       margin-top: 2vh;
+   }
+   .dropdown-trigger{
+       position: relative;
+       top: 20%;
+       text-align: justify;
+       margin-top: 3.5em;
+       padding: 2rem;
+   }
+   .breadcrumbar{
+    margin-top: 4rem;
+    }
+    
+}  
+  
+/*Data barra 2 About*/
+
+.insideheighrow{
+    margin-top: 1rem;
+    height: 100%;
+    max-height: 100%;   
+} 
+/*Data de usuario barra 1*/
+#name{
+    
+}
+#nickname{
+    
+}
+#speciality{
+
+}
+
+/* data de usuario barra 3*/ 
+ #job{
+ }
+   
+#proyects{
+   
+
+}
+#functionPop{
+   
 }

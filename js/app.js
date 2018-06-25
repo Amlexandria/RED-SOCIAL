@@ -1,1 +1,5 @@
-app.js
+/*Dropdown de header*/
+
+
+  $('.dropdown-trigger').dropdown();
+        
