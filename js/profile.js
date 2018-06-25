@@ -1,9 +1,9 @@
 //VARIABLES
-var $title= $("#poptitle");
-var $comment= $("#commentsprofile");
-var $tools= $("#tools");
+var $title = $("#poptitle");
+var $comment = $("#commentsprofile");
+var $tools = $("#tools");
 var $proces = $("#process");
-var $uploadImg =$('#img');
+var $uploadImg = $('#img');
 
 
 
@@ -85,7 +85,11 @@ $fileButton.change('change', function (e) {
         var updates = {};
         var postData = {
           url: downloadURL,
-          name: $('#poptitle').val()
+          name: $('#poptitle').val(),
+          comment: $('#commentsprofile').val(),
+          tools: $('#tools').val(),
+          process: $('#process').val()
+
         };
         updates['/postImage/' + postKey] = postData;
         firebase.database().ref().update(updates);
@@ -95,50 +99,131 @@ $fileButton.change('change', function (e) {
     });
 });
 
-$(document).ready(function(){
-  firebase.auth().onAuthStateChanged(function(user){
-  if (user){
-    //si el usuario esta conectado
-    var token = firebase.auth().currentUser.uid;
-    queryDatabase(token);
-  }else{
-    //No user signed in 
-    window.location = "../index.html"
-    }
-  });
+//idRandom para que los modales no choquen
+var $idModal = function guidGenerator() {
+  var S4 = function () {
+    return (((1 + Math.random()) * 0x10000) | 0).toString(16).substring(1);
+  };
+  return (S4() + S4() + "-" + S4() + "-" + S4() + "-" + S4() + "-" + S4() + S4() + S4());
+}
+
+
+// Retrieve new posts as they are added to our database
+var dataImageRef = firebase.database().ref("postImage/");
+
+dataImageRef.on("child_added", function (data) {
+  var newdataImg = data.val();
+  console.log("name: " + newdataImg.name);
+  console.log("description: " + newdataImg.description);
+  console.log("techniques: " + newdataImg.techniques);
+  console.log("url: " + newdataImg.url);
 });
-function queryDatabase(token){
-  firebase.database().ref('/postImage/').once('value').then(function(snapshot){
-    var postObject = snapshot.val();
-    var keys = Object.keys(postObject);
-    var currentRow;
-    for (var i = 0; i< keys.length; i++){
-      var currentObject = postObject[keys[i]];
-      if(i % 3 = 0){
-        currentRow =
-      };
-    };
-  });
-};
+var namePublication = $('#poptitle');
+var description = $('#description');
+var tools = $('#tools');
+var process = $('#process');
 
-
-
-
-
-
-
-/*Dropdown de header*/
-
-
-$('.dropdown-trigger').dropdown();
-
-//modal
 $(document).ready(function () {
-  $('.modal').modal();
-  $("#add-contact").click(getContactData);
-});
+      //Comprobando que el usuario esté asignado
+      firebase.auth().onAuthStateChanged(function (user) {
+        if (user) {
+          // User is signed in.
+          var token = firebase.auth().currentUser.uid;
+          queryDatabase(token);
+        } else {
+          // No user is signed in.
+          window.location = "index.html";
+        };
+      });
 
-//img
-$(document).ready(function () {
-  $('.materialboxed').materialbox();
-});
+      //obteniendo los keys del objeto Post images
+      function queryDatabase(token) {
+        firebase.database().ref('/postImage/').once('value').then(function (snapshot) {
+              var postObject = snapshot.val();
+              var keys = Object.keys(postObject);
+
+              for (var i = 0; i < keys.length; i++) {
+                var currentObject = postObject[keys[i]];
+                console.log(currentObject);
+
+                var imageOfThePost = currentObject.url;
+                namePublication = currentObject.name;
+                techniques = currentObject.techniques;
+                description = currentObject.description;
+                console.log(postObject);
+              }
+
+
+                var template = `<div class="col s12 m4">
+                  <div class="thumbnail  modal-trigger" href=__modalID__ >
+                   <img class="responsive-img" height="200" width="300"  src="${popPicture}">
+                    <span class="title">${namePublication}</span>
+                  </div> 
+              </div> 
+                <div id="__modalID__" class="modal">
+                  <div class="modal-content">
+                    <div class="row">
+                        <div class="col s12 m12">
+                           <div class="card-image">
+                              <img src="${popPicture}"> <!--Esto se cambiara por la imagen cargada-->
+                              <span class="card-title"></span>
+                              <div class="card-content"> //<!--inicio de la carta-->
+                              <div>// inicio de cartatitulo
+                                  <h3>${namePublication}</h3>
+                              </div>//fin carta titulo
+                              <div> //div contenedor de comentarios
+                                  <p>${description} </p> <!--Se remplazara con el  comentario del artista-->
+                              </div>
+                              <div>//tools inicio
+                                 <p>${tools}</p>
+                              </div>//final tool
+                              <div>//inicio de div de  proceso
+                                  <p>${process}</p>
+                              </div>
+                            </div>//finalcard
+                          </div>//finalcolumnws12
+                      </div> //finalrow
+                  </div> //final div modal
+                  //COMMENTS SPACE
+                  <div class="comment-section">
+                      <div class="">
+                          <textarea class="txt" id="text" rows="1" onkeydown="counter(this)" onkeyup="counter(this)" placeholder="¿Te gusta mi Pop? Comenta!"></textarea>
+                          <button type="button" id="btn" class="btn">Post</button>
+                         <span id="counter">140</span>
+                      </div>
+                  </div>
+                  //FINAL COMMENTS
+                <div class="modal-footer">
+                  <a href="#!" class="modal-close waves-effect waves-green btn-flat">Cerrar</a>
+                </div>`
+
+                var $Print = $("#sendImageToPrint");
+
+                $Print.click(function () {
+                  var template = "";
+                  template = template.replace("__modalID__", $idModal)
+                  $("#baseRow").append(template);
+
+                });
+
+
+
+
+
+
+
+
+
+                /*Dropdown de header*/
+
+
+                $('.dropdown-trigger').dropdown();
+
+                //modal
+                $(document).ready(function () {
+                  $('.modal').modal();
+                  $("#add-contact").click(getContactData);
+                  $('.materialboxed').materialbox();
+                });
+
+               
