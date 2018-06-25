@@ -1,24 +1,18 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
     <link rel="stylesheet" href="../css/assets/materialize.min.css">
     <link rel="stylesheet" href="../css/main.css">
-    <link rel="stylesheet" href="../css/profile.css">
-
-
-
-    <title></title>
+    <link rel="stylesheet" href="../css/timeline.css">
+    <title>Having a Nice day</title>
 </head>
-
 <body>
-        <header class="">
-                <div class="row border  " id="barbar">
+    <header id="barbar">
+            <div class="row border  ">
                     <!--Avatar-->
                     <div class="col s3 m2 ">
                         <div class=" imgbox ">
@@ -63,7 +57,7 @@
                             </div>                
                             
                                 <!--Datos personales, se mostrara en todos los tamaños-->
-                            <div class="col s12 m4  ">
+                            <div class="col m4  ">
                                 <div class="">
                                     <label for="AboutTextArea">About</label>
                                     <p class="headerAbout" id="AboutTextArea">
@@ -120,13 +114,15 @@
                             
                             
                                  <!-- Dropdown Trigger -->
-                                <a class='dropdown-trigger btn' href='#' data-target='dropdown1'>PopMe!</a>
+                                <a class='dropdown-trigger btn' href='#' data-target='dropdown1'>Drop Me!</a>
+                           
                             <!-- Dropdown Structure -->
                             <ul id='dropdown1' class='dropdown-content'>
                                 <a class="waves-effect waves-light btn modal-trigger" href="#upload"><i class="material-icons">collections</i>Subir Imagen</a>
                                 <li class="divider" tabindex="-1"></li>
                                 <li><a href="/view/timeline.html"><i class="material-icons">timeline</i>Timeline</a></li>
                                 <li><a href="/view/profile.html"><i class="material-icons">fingerprint</i>Perfil</a></li>
+                                <li><a href="/view/config.html"><i class="material-icons">settings</i>Preferencias</a></li>
                             </ul>
                         </div>
                     </div><!--Final particion Submit-->
@@ -167,32 +163,101 @@
                                             <textarea id="process" class="materialize-textarea"></textarea>
                                         </div>
                                         
-                                        <button class="btn btn-large waves-effect waves-light modal-close" id="sendImageToPrint" type="submit" name="action">Submit
+                                        <!-- <button class="btn btn-large waves-effect waves-light modal-close" type="submit" name="action">Submit
                                              <i class="material-icons center">send</i>
-                                        </button>
+                                        </button> -->
                                     </div>
                                  </div>
                             </div>
                         </div>                  
                     </div>
                 </div><!--Fin de Modal-->   
-        </header>
-        <main>
-            <div class="row" id="baseRow">
-
+    </header>
+    <div class="row btn-new-post">
+        <a id="publicar" class="waves-effect waves-light btn offset-s6 offset-m8 offset-l9 col s5 m3 l2 modal-trigger" href="#modal1">Publicar</a>
+    </div> 
+     <!-- CARD PUBLICACIÓN PLANTILLA -->
+    <main>
+        <section id="plantilla" class="row">
+            <div class="card offset-s1 col s10 offset-m2 col m8 offset-l4 col l4">
+                <div class="row cont-img-profile">
+                    <div class="image-profile col s2">
+                        <img id="profile-picture" class="circle responsive-img" src="../assets/images/profile.jpg" alt="">
+                    </div>
+                    <p id="user-name" class="col s7 m8 l8">Nombre de Usuario</p>
+                </div>
+                <div class="card-image waves-effect waves-block waves-light">
+                    <img id="picture" class="activator" src="../assets/images/foto1.jpeg">
+                </div>
+                <div class="card-content">
+                    <span id="title-card" class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
+                    <p class="col s4 go-to-profile"><a href="#">Ir a perfil</a></p>
+                    <a class="btn-delete waves-effect waves-light btn-small offset-s10 col s2 "><i class="material-icons center">delete</i></a>
+                </div>
+                <div class="card-reveal">
+                    <span id="title-card-inside" class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+                    <h6><strong>Tecnica</strong></h6>
+                    <p id="description">Here is some more information about this product that ....</p> 
+                    <div class="container-tools">Herramientas</div>
+                </div>
             </div>
-        </main>
+        </section>
+    </main>
+    
+    <!-- MODAL PUBLICAR -->
+    <div id="modal1" class="modal center">
+        <div class="modal-content">
+            <h5>¡Haz un pop artístico!</h5>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="pop-name" type="text" class="validate">
+                    <label for="pop-name">Nombre/Tema de tu pop</label>
+                </div>
+                <div class="input-field col s12">
+                    <input id="tecnica" type="text" class="validate">
+                    <label for="tecnica">Técnica de la obra</label>
+                </div>
+                <div class="input-field col s12">
+                    <input id="tools" type="text" class="validate">
+                    <label for="tools">Herramientas utilizadas</label>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <textarea id="textarea1" class="materialize-textarea"></textarea>
+                        <label for="textarea1">Descripción de la obra</label>
+                    </div>
+                </div>
+                <!-- SUBIR IMAGEN -->
+                <div class="file-field input-field">
+                    <div class="btn">
+                        <span>File</span>
+                        <input id="picture-file-input" type="file"  multiple>
+                    </div>
+                    <div class="file-path-wrapper">
+                        <input id="picture-input" class="file-path validate" type="text" onchange="openFile(event)" placeholder="Upload one or more files">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a id="publicar-pop" href="#!" class="modal-close waves-effect waves-green btn-flat">Publicar</a>
+            </div>
+        </div>
+    </div>
+    
+   
+ 
 
 
 
-    <script src="https://www.gstatic.com/firebasejs/5.1.0/firebase.js"></script>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
+
+
+    
     <script src="../js/assets/JqueryUncompressed.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.1.0/firebase.js"></script>
     <script src="../js/assets/materialize.min.js"></script>
-    <script src="../js/profile.js"></script>
-
-
+    <script src="../js/app.js"></script>
+    <script src="../js/timeline.js"></script>
 </body>
 
-</html>

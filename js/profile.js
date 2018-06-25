@@ -99,6 +99,7 @@ $fileButton.change('change', function (e) {
     });
 });
 
+<<<<<<< HEAD
 //idRandom para que los modales no choquen
 var $idModal = function guidGenerator() {
   var S4 = function () {
@@ -106,6 +107,37 @@ var $idModal = function guidGenerator() {
   };
   return (S4() + S4() + "-" + S4() + "-" + S4() + "-" + S4() + "-" + S4() + S4() + S4());
 }
+=======
+// $(document).ready(function(){
+//   firebase.auth().onAuthStateChanged(function(user){
+//   if (user){
+//     //si el usuario esta conectado
+//     var token = firebase.auth().currentUser.uid;
+//     queryDatabase(token);
+//   }else{
+//     //No user signed in 
+//     window.location = "../index.html"
+//     }
+//   });
+// });
+// function queryDatabase(token){
+//   firebase.database().ref('/postImage/').once('value').then(function(snapshot){
+//     var postObject = snapshot.val();
+//     var keys = Object.keys(postObject);
+//     var currentRow;
+//     for (var i = 0; i< keys.length; i++){
+//       var currentObject = postObject[keys[i]];
+//       if(i % 3 = 0){
+//         currentRow =
+//       };
+//     };
+//   });
+// };
+
+
+
+
+>>>>>>> c613cda092daa9bcbc514784ced07652c939d1d1
 
 
 // Retrieve new posts as they are added to our database
