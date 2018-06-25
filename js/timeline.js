@@ -3,6 +3,8 @@ var techniques;
 var tools;
 var description;
 var popPicture;
+var reader;
+var imageData;
 
 function getDataforPop () {
   namePublication = $('#pop-name').val();
@@ -11,6 +13,15 @@ function getDataforPop () {
   console.log(tools);
   description = $('#textarea1').val();
   popPicture = $('#picture-input').val();
+
+  // reader = new FileReader();
+  // reader.onload = function() {
+  //   imageData = reader.result;
+  //   console.log(imageData);
+  //   $('#output').attr('src', imageData);
+  // }
+
+  // reader.readAsDataURL($('#picture-file-input')[0].files[0]);
 
   creatingPost();
 
@@ -22,18 +33,17 @@ function getDataforPop () {
   $('#picture-input').val("");
 };
 
-var openFile = function(event) {
-  var input = event.target;
 
-  var reader = new FileReader();
-  reader.onload = function(){
-    var dataURL = reader.result;
-    var output = $('#output');
-    output.src = dataURL;
-  };
-  reader.readAsDataURL(input.files[0]);
-};
+function imgUrl(fileInput) {
+  reader = new FileReader();
+  reader.onload = function(evt) {
+    dataURL = evt.target.result;
+    // addPostData();
+    savePostData();
+  }
 
+  reader.readAsDataURL(fileInput.files[0]);
+}
 
 function creatingPost (){
   var templatePop = `<section class="row">
