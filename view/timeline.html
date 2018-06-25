@@ -16,29 +16,80 @@
     </nav> 
     <div id="root"></div> 
     <header>
-    <!--- Dropdown CATEGORÍAS-->
-        <a class='dropdown-trigger btn' href='#' data-target='dropdown1'>Drop Me!</a>
-        <!-- Dropdown Structure -->
-        <ul id='dropdown1' class='dropdown-content'>
-            <li><a href="#!">one</a></li>
-            <li><a href="#!">two</a></li>
-            <li class="divider" tabindex="-1"></li>
-            <li><a href="#!">three</a></li>
-            <li><a href="#!"><i class="material-icons">view_module</i>four</a></li>
-            <li><a href="#!"><i class="material-icons">cloud</i>five</a></li>
-        </ul>
-        <div class="fixed-action-btn">
-            <a class="btn-floating btn-large red">
-              <i class="large material-icons">mode_edit</i>
-            </a>
-            <ul>
-              <li><a class="btn-floating red"><i class="material-icons">insert_chart</i></a></li>
-              <li><a class="btn-floating yellow darken-1"><i class="material-icons">format_quote</i></a></li>
-              <li><a class="btn-floating green"><i class="material-icons">publish</i></a></li>
-              <li><a class="btn-floating blue"><i class="material-icons">attach_file</i></a></li>
-            </ul>
-          </div>
+        <div class="row">
+            <a id="Publicar" class="waves-effect waves-light btn offset-s6 offset-m8 offset-l9 col s5 m3 l2 modal-trigger" href="#modal1">Publicar</a>
+        </div>   
     </header>
+     <!-- CARD PUBLICACIÓN PLANTILLA -->
+    <main>
+        <section id="plantilla" class="row">
+            <div class="card offset-s1 col s10 offset-m2 col m8 offset-l4 col l4">
+                <div class="row cont-img-profile">
+                    <div class="image-profile col s2">
+                        <img id="profile-picture" class="circle responsive-img" src="../assets/images/profile.jpg" alt="">
+                    </div>
+                    <p id="user-name" class="col s7 m8 l8">Nombre de Usuario</p>
+                </div>
+                <div class="card-image waves-effect waves-block waves-light">
+                    <img id="picture" class="activator" src="../assets/images/foto1.jpeg">
+                </div>
+                <div class="card-content">
+                    <span id="title-card" class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
+                    <p class="col s4 go-to-profile"><a href="#">Ir a perfil</a></p>
+                    <a class="btn-delete waves-effect waves-light btn-small offset-s10 col s2 "><i class="material-icons center">delete</i></a>
+                </div>
+                <div class="card-reveal">
+                    <span id="title-card-inside" class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+                    <h6><strong>Tecnica</strong></h6>
+                    <p id="description">Here is some more information about this product that ....</p> 
+                    <div class="container-tools">Herramientas</div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- MODAL PUBLICAR -->
+    <div id="modal1" class="modal center">
+        <div class="modal-content">
+            <h5>¡Haz un pop artístico!</h5>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="pop-name" type="text" class="validate">
+                    <label for="pop-name">Nombre/Tema de tu pop</label>
+                </div>
+                <div class="input-field col s12">
+                    <input id="tecnica" type="text" class="validate">
+                    <label for="tecnica">Técnica de la obra</label>
+                </div>
+                <div class="col s12">
+                    <p class="herramientas">Herramientas utilizadas:</p>
+                    <div id="tools" class="chips chips-placeholder"></div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <textarea id="textarea1" class="materialize-textarea"></textarea>
+                        <label for="textarea1">Descripción de la obra</label>
+                    </div>
+                </div>
+                <!-- SUBIR IMAGEN -->
+                <div class="file-field input-field">
+                    <div class="btn">
+                        <span>File</span>
+                        <input type="file" multiple>
+                    </div>
+                    <div class="file-path-wrapper">
+                        <input id="picture-input" class="file-path validate" type="text"  onchange="openFile(event)" placeholder="Upload one or more files">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a id="publicar-pop" href="#!" class="modal-close waves-effect waves-green btn-flat">Publicar</a>
+            </div>
+        </div>
+    </div>
+    
+   
+ 
 
 
 
