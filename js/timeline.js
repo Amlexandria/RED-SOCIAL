@@ -174,7 +174,7 @@ function creatingPost (){
   </div>
  </section>`
 
- $("main").append(templatePop);
+ $("main").prepend(templatePop);
 };
 
 
