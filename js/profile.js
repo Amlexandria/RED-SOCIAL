@@ -95,31 +95,31 @@ $fileButton.change('change', function (e) {
     });
 });
 
-$(document).ready(function(){
-  firebase.auth().onAuthStateChanged(function(user){
-  if (user){
-    //si el usuario esta conectado
-    var token = firebase.auth().currentUser.uid;
-    queryDatabase(token);
-  }else{
-    //No user signed in 
-    window.location = "../index.html"
-    }
-  });
-});
-function queryDatabase(token){
-  firebase.database().ref('/postImage/').once('value').then(function(snapshot){
-    var postObject = snapshot.val();
-    var keys = Object.keys(postObject);
-    var currentRow;
-    for (var i = 0; i< keys.length; i++){
-      var currentObject = postObject[keys[i]];
-      if(i % 3 = 0){
-        currentRow =
-      };
-    };
-  });
-};
+// $(document).ready(function(){
+//   firebase.auth().onAuthStateChanged(function(user){
+//   if (user){
+//     //si el usuario esta conectado
+//     var token = firebase.auth().currentUser.uid;
+//     queryDatabase(token);
+//   }else{
+//     //No user signed in 
+//     window.location = "../index.html"
+//     }
+//   });
+// });
+// function queryDatabase(token){
+//   firebase.database().ref('/postImage/').once('value').then(function(snapshot){
+//     var postObject = snapshot.val();
+//     var keys = Object.keys(postObject);
+//     var currentRow;
+//     for (var i = 0; i< keys.length; i++){
+//       var currentObject = postObject[keys[i]];
+//       if(i % 3 = 0){
+//         currentRow =
+//       };
+//     };
+//   });
+// };
 
 
 
